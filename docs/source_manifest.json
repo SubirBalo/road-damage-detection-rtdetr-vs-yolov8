@@ -1,0 +1,226 @@
+[
+  {
+    "staging": "LICENSES/RT-DETR-Apache-2.0.txt",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\LICENSE",
+    "reason": "Preserve exact upstream Apache-2.0 text separately from project-specific MIT",
+    "classification": "upstream-derived",
+    "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "configs/dataset/rdd_detection.yml",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\configs\\dataset\\rdd_detection.yml",
+    "reason": "RDD configuration snapshot; original paths and upstream includes preserved; preserve applicable Apache-2.0 obligations",
+    "classification": "upstream-derived configuration adaptation",
+    "sha256": "10dd6ed8ce144b9ec5dfead32edd0a366d33dcd7dc07db60ea7010cb21612d3d",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "configs/dataset/rdd_test_detection.yml",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\configs\\dataset\\rdd_test_detection.yml",
+    "reason": "RDD configuration snapshot; original paths and upstream includes preserved; preserve applicable Apache-2.0 obligations",
+    "classification": "upstream-derived configuration adaptation",
+    "sha256": "3a723ebff9135b0d996520e9d7e2a54df5a3487c115041a7e2e8b01e61f14976",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "configs/rtdetr/rtdetr_r18vd_rdd.yml",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\configs\\rtdetr\\rtdetr_r18vd_rdd.yml",
+    "reason": "RDD configuration snapshot; original paths and upstream includes preserved; preserve applicable Apache-2.0 obligations",
+    "classification": "upstream-derived configuration adaptation",
+    "sha256": "84d5b0b05867fbde08e5f5b2a36dc04d7d84e0cc481790d5edb939884d22c27b",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "configs/rtdetr/rtdetr_r18vd_rdd_test.yml",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\configs\\rtdetr\\rtdetr_r18vd_rdd_test.yml",
+    "reason": "RDD configuration snapshot; original paths and upstream includes preserved; preserve applicable Apache-2.0 obligations",
+    "classification": "upstream-derived configuration adaptation",
+    "sha256": "dcd87e0f137a73cc16a1ff7f5dadacf25b255c2acd4dce29dfe0fab0c20ae171",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "tools/convert_rdd_yolo_to_coco.py",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\tools\\convert_rdd_yolo_to_coco.py",
+    "reason": "RDD conversion/evaluation/inference; infer.py supplies evaluation dependencies",
+    "classification": "project-specific",
+    "sha256": "ac80e3f8900147dc30ea99ee7ee711e3cac17df73abc725d39250b156aecb368",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "tools/evaluate_rdd_examples.py",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\tools\\evaluate_rdd_examples.py",
+    "reason": "RDD conversion/evaluation/inference; infer.py supplies evaluation dependencies",
+    "classification": "project-specific",
+    "sha256": "df77c8cc0ebcd5e8f4708ac6c8297fa73bd3508e9b4410054d130585fa3bb81b",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "tools/test_rdd_evaluation.py",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\tools\\test_rdd_evaluation.py",
+    "reason": "RDD conversion/evaluation/inference; infer.py supplies evaluation dependencies",
+    "classification": "project-specific",
+    "sha256": "ea488e589f069fed51949b87ce15309305713f8c28cc1e75609da4bc3b10b3e5",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "tools/live_onnx_rdd.py",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\tools\\live_onnx_rdd.py",
+    "reason": "RDD conversion/evaluation/inference; infer.py supplies evaluation dependencies",
+    "classification": "project-specific",
+    "sha256": "566c511386c7c9e34d6a9740b0bd6cf783ae44b79d7f3568ec1d91931c45740c",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "tools/infer.py",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\tools\\infer.py",
+    "reason": "RDD conversion/evaluation/inference; infer.py supplies evaluation dependencies",
+    "classification": "modified upstream framework (Apache-2.0-derived)",
+    "sha256": "3b138aeb47618ec2ee9cff01d9ee51baa287b52d11586116fbd24844922f723e",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "deployment/jetson/oak_rtdetr_live.py",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\deployment\\oak_rtdetr_live.py",
+    "reason": "Camera/runtime implementation or recorded fingerprint; engine excluded",
+    "classification": "project-specific",
+    "sha256": "de5b006b59422c9d482347b543f50faa49116bee62aea0dd6fd0801840140784",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "deployment/jetson/oak_rtdetr_record.py",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\deployment\\oak_rtdetr_record.py",
+    "reason": "Camera/runtime implementation or recorded fingerprint; engine excluded",
+    "classification": "project-specific",
+    "sha256": "6fc6d8107b7a9fa6879865add8e769769b89f3285a75a9e671ece7c5d19ff562",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "deployment/jetson/rdd_runtime.py",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\deployment\\rdd_runtime.py",
+    "reason": "Camera/runtime implementation or recorded fingerprint; engine excluded",
+    "classification": "project-specific",
+    "sha256": "eb998fd18df0ca7bb9aa086843d9937435791356c32ca1537d027c1f38377700",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "deployment/jetson/rdd_raw_runtime.py",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\deployment\\rdd_raw_runtime.py",
+    "reason": "Camera/runtime implementation or recorded fingerprint; engine excluded",
+    "classification": "project-specific",
+    "sha256": "3b6880296680c3b70ef4650c06c9c70dfa1fb107993ed6db5ce8dea273671337",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "deployment/jetson/rdd_raw_postprocess.py",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\deployment\\rdd_raw_postprocess.py",
+    "reason": "Camera/runtime implementation or recorded fingerprint; engine excluded",
+    "classification": "project-specific",
+    "sha256": "781dc63b5a47181d95d22bfc9d3966006eeefd3e44305c4ca290cde8ba337aea",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "deployment/jetson/TENSORRT_ENGINE_SHA256.txt",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\deployment\\TENSORRT_ENGINE_SHA256.txt",
+    "reason": "Camera/runtime implementation or recorded fingerprint; engine excluded",
+    "classification": "project-specific",
+    "sha256": "eb65d6ffab19b94c8804128faca153bcec5ae054941e9a65220a78e15498d7c0",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "deployment/jetson/deployment_model_hashes.txt",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\model\\deployment_model_hashes.txt",
+    "reason": "Recorded fingerprints, not fresh binary verification",
+    "classification": "project-specific",
+    "sha256": "132dcc83a9c6fac6002052fd6455dec7c58fa910068875b402ef09daeaa2db51",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "results/metrics/model_test_results.txt",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\benchmarks\\model_test_results.txt",
+    "reason": "Historical summary; interpretation/corrections in results/README.md",
+    "classification": "project-specific",
+    "sha256": "29f615a7f9628ef5e60c69be19186a3336474f5747434b38905e1107a4c38ad1",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "results/benchmarks/oak_jetson_benchmark.txt",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\benchmarks\\oak_jetson_benchmark.txt",
+    "reason": "Historical summary; interpretation/corrections in results/README.md",
+    "classification": "project-specific",
+    "sha256": "b54dc82460d9b9022acb7fd3f717ee45cfa3bb37d9c6efae86e6c9aaddd3a7ed",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "results/benchmarks/tensorrt_validation.txt",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\benchmarks\\tensorrt_validation.txt",
+    "reason": "Historical summary; interpretation/corrections in results/README.md",
+    "classification": "project-specific",
+    "sha256": "80e022453418625cac254aea510390358fa0155a769d2a1d3eae8e1eac787578",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "docs/recorded_notes/system_architecture.txt",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\report_materials\\system_architecture.txt",
+    "reason": "Historical notes preserved; numbered documentation provides qualifications",
+    "classification": "project-specific",
+    "sha256": "006c2161d8139a5f299faf5139cd224e620a2b15663ef8a5c0731f7879ac092c",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "docs/recorded_notes/limitations.txt",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\report_materials\\limitations.txt",
+    "reason": "Historical notes preserved; numbered documentation provides qualifications",
+    "classification": "project-specific",
+    "sha256": "7021990d737ba2064051542568cb8c80c3a1e00832344f49b75a1af12294f429",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "docs/recorded_notes/results_summary.txt",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\report_materials\\results_summary.txt",
+    "reason": "Historical notes preserved; numbered documentation provides qualifications",
+    "classification": "project-specific",
+    "sha256": "57d423f507ad8e0b775e12853654974e0175e92ab28dda8f347cdeb75e6bf0e2",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "assets/demo/oak_rtdetr_demo.mp4",
+    "source": "D:\\Road_Damage_Project\\FINAL_PROJECT_EVIDENCE\\demo\\oak_rtdetr_demo.mp4",
+    "reason": "204-frame screen-based camera demonstration",
+    "classification": "project-specific",
+    "sha256": "e02eb856c253bfdbaa0d717e27c04906898333dc690bbe3a1b119d758727828f",
+    "migration_status": "excluded_restricted_media"
+  },
+  {
+    "staging": "results/metrics/evaluation_summary.json",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rdd_test_examples\\evaluation_summary.json",
+    "reason": "Checkpoint-hashed epoch-71 threshold experiment metadata",
+    "classification": "project-specific",
+    "sha256": "5a4de7f66bd2062ec69a09516b0890c3aa3becf3b4fc62d797fd9ae8f85ea519",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "results/metrics/log.txt",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rtdetr_r18vd_rdd\\log.txt",
+    "reason": "71 validation entries; epoch 21 absent",
+    "classification": "project-specific",
+    "sha256": "9e907b87f45023702643bfd61f30e0eec1b8a087b0c693454b4e7e302ded2b8c",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "results/benchmarks/windows_validation.json",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\JETSON_NANO_DEPLOYMENT\\logs\\windows_validation.json",
+    "reason": "Recorded host parity evidence; historical Nano-pending fields retained",
+    "classification": "project-specific",
+    "sha256": "387b2043b6c26c7b4c89fcfaa02f3d59768ff2ba2d05082160e6b04d6eb2f942",
+    "migration_status": "included_unchanged"
+  },
+  {
+    "staging": "results/benchmarks/nano_raw_validation_final.json",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\JETSON_NANO_DEPLOYMENT\\logs\\nano_raw_validation_final.json",
+    "reason": "Recorded host parity evidence; historical Nano-pending fields retained",
+    "classification": "project-specific",
+    "sha256": "7534638299d8667cbb32e27b152c3483ed770b24cd7585b8f48c0f3455cac6b5",
+    "migration_status": "included_unchanged"
+  }
+]

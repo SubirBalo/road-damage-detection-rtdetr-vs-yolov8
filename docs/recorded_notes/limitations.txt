@@ -1,0 +1,45 @@
+PROJECT LIMITATIONS
+
+1. EDGE COMPUTING PERFORMANCE
+The NVIDIA Jetson Nano 4GB is a resource-constrained embedded
+platform. RT-DETR-R18 TensorRT FP16 deployment achieved
+approximately 2.2 FPS during live OAK-D operation, which is
+substantially slower than the RTX 5070 inference-only benchmark.
+
+2. END-TO-END RECORDING OVERHEAD
+The recorded demonstration achieved 1.892 FPS. This measurement
+includes camera acquisition, preprocessing, TensorRT inference,
+post-processing, annotation, display, and MP4 encoding, so it
+should not be interpreted as pure model inference speed.
+
+3. MODEL ACCURACY
+The test-set mAP50-95 was 0.350 and AP50 was 0.644.
+Performance varies between damage classes. D40 achieved the
+highest AP50 (0.7572), while the Other class achieved the
+lowest AP50 (0.5478).
+
+4. RECALL
+At confidence >= 0.60 and IoU >= 0.50, precision was 77.04%
+and recall was 51.65%. Therefore, the selected threshold favors
+higher-confidence detections but some road damage remains
+undetected.
+
+5. PHYSICAL DEMONSTRATION CONDITIONS
+The OAK-D live demonstration included tests where road-damage
+images were displayed on another screen and captured by the
+camera. Perspective distortion, display scaling, reflections,
+and screen/camera artifacts can affect classification results.
+This is evidence of physical camera-to-edge-device operation,
+but it is not equivalent to a controlled real-road field test.
+
+6. CAMERA CONNECTION
+The OAK-D operated through a USB 2 connection during the
+validated deployment, which can limit available camera
+bandwidth compared with USB 3 operation.
+
+7. FUTURE WORK
+Future development should include real-road data collection,
+vehicle-mounted testing, additional training/data balancing,
+threshold optimization, faster edge hardware or further model
+optimization, and systematic latency/FPS measurements under
+controlled conditions.

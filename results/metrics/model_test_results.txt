@@ -1,0 +1,36 @@
+RDD2022 RT-DETR-R18 - Test Set Evaluation
+
+Best checkpoint:
+- Epoch: 59
+- Classes: 5
+- Input resolution: 640x640
+
+COCO Metrics:
+- mAP50-95: 0.350
+- AP50: 0.644
+- AP75: 0.328
+- AP Small: 0.242
+- AP Medium: 0.290
+- AP Large: 0.413
+- AR100: 0.613
+
+Per-Class AP50-95:
+- D00: 0.3572
+- D10: 0.3191
+- D20: 0.3482
+- D40: 0.4736
+- Other: 0.2495
+
+Per-Class AP50:
+- D00: 0.6355
+- D10: 0.6170
+- D20: 0.6612
+- D40: 0.7572
+- Other: 0.5478
+
+At confidence >= 0.60 and IoU >= 0.50:
+- TP: 4997
+- FP: 1489
+- FN: 4678
+- Precision: 77.04%
+- Recall: 51.65%

@@ -1,0 +1,54 @@
+RDD2022 RT-DETR ROAD DAMAGE DETECTION — SYSTEM ARCHITECTURE
+
+TRAINING PIPELINE
+
+RDD2022 Dataset
+      |
+      v
+Dataset Preparation
+YOLO Labels -> COCO Format
+      |
+      v
+RT-DETR-R18 Training
+640x640, 5 Classes
+      |
+      v
+Best Model
+Epoch 59
+      |
+      v
+Test Evaluation
+mAP50-95 = 0.350
+AP50 = 0.644
+
+
+DEPLOYMENT PIPELINE
+
+Best RT-DETR-R18 Model
+      |
+      v
+ONNX Export
+      |
+      v
+Jetson-Compatible Raw ONNX
+nano_raw.onnx
+      |
+      v
+TensorRT FP16 Conversion
+nano_raw_fp16.engine
+      |
+      v
+NVIDIA Jetson Nano 4GB
+      ^
+      |
+OAK-D RGB Camera
+640x480
+      |
+      v
+Preprocessing -> TensorRT Inference -> Post-processing
+      |
+      v
+Bounding Boxes + Class + Confidence
+      |
+      v
+Live Display / Recorded Demo

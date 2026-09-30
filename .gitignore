@@ -189,3 +189,20 @@ cython_debug/
 *.engine
 *.onnx
 *.onnx.data
+
+# Audited R18 package exclusions (merged from staging)
+.venv/
+.env.*
+!.env.example
+*.cache
+*.zip
+*.building
+RDD2022/
+datasets/
+weights/
+checkpoints/
+outputs/
+deployment/jetson/models/
+deployment/jetson/results/
+Thumbs.db
+/assets/demo/*.mp4

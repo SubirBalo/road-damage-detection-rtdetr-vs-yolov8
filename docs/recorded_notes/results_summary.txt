@@ -1,0 +1,52 @@
+RDD2022 RT-DETR-R18 — FINAL RESULTS SUMMARY
+
+MODEL
+Architecture: RT-DETR-R18
+Input resolution: 640x640
+Classes: 5
+Best checkpoint: Epoch 59
+
+TEST SET
+mAP50-95: 0.350
+AP50: 0.644
+AP75: 0.328
+AR100: 0.613
+
+PER-CLASS AP50
+D00: 0.6355
+D10: 0.6170
+D20: 0.6612
+D40: 0.7572
+Other: 0.5478
+
+CONFIDENCE >= 0.60, IoU >= 0.50
+Precision: 77.04%
+Recall: 51.65%
+
+RTX 5070 ONNX RUNTIME
+Inference time: ~8.11 ms
+Inference throughput: ~123.37 FPS
+Note: inference-only benchmark.
+
+JETSON NANO FILE-VIDEO PIPELINE
+Throughput: ~2.37 FPS
+
+JETSON NANO + OAK-D LIVE
+Observed live processing: ~2.2 FPS
+
+JETSON NANO + OAK-D RECORDED DEMO
+Frames: 204
+Time: 107.825 s
+End-to-end throughput: 1.892 FPS
+Note: includes camera acquisition, preprocessing, inference,
+post-processing, annotation, display, and MP4 writing.
+
+DEPLOYMENT VALIDATION
+Windows confidence: 0.783393
+Jetson TensorRT FP16 confidence: 0.783326
+Class on both systems: D10
+
+CONCLUSION
+The trained RT-DETR-R18 model was successfully converted to
+TensorRT FP16 and deployed on an NVIDIA Jetson Nano with live
+OAK-D RGB camera input.

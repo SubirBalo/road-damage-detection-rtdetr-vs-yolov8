@@ -1,279 +1,76 @@
-# AI-Based Road Damage Detection for Autonomous Systems
+# Road Damage Detection with RT-DETR-R18
 
-### Comparative Evaluation of RT-DETR-L and YOLOv8-L on the RDD2022 Dataset with Edge AI Deployment on NVIDIA Jetson Nano
+Adapted and integrated upstream RT-DETR-R18 / PResNet-18 for five-class road-damage detection and edge deployment. This repository packages selected code, audited results and documentation of a recorded camera demonstration (media excluded). Datasets, checkpoints, ONNX models and TensorRT engines are excluded; this is an engineering evidence package, not a self-contained model distribution.
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
-![RT-DETR](https://img.shields.io/badge/RT--DETR-L-success)
-![YOLOv8](https://img.shields.io/badge/YOLOv8-L-yellow)
-![Jetson Nano](https://img.shields.io/badge/NVIDIA-Jetson%20Nano-green)
-![OAK-D](https://img.shields.io/badge/Luxonis-OAK--D-blueviolet)
-![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-orange)
+## System architecture
 
----
-
-# Abstract
-
-This project presents the design, implementation, evaluation, and embedded deployment of an AI-based road damage detection system for autonomous and intelligent transportation applications.
-
-The work compares two state-of-the-art object detection models:
-
-- RT-DETR-L
-- YOLOv8-L
-
-using the RDD2022 dataset under identical training conditions and evaluation metrics.
-
-The project extends beyond model comparison by deploying the vision pipeline onto an NVIDIA Jetson Nano with a Luxonis OAK-D smart camera, demonstrating a complete edge AI solution suitable for robotics and autonomous systems.
-
----
-
-# Motivation
-
-Road surface damage directly affects transportation safety, driving comfort, and infrastructure maintenance costs.
-
-Traditional manual inspection is expensive, time-consuming, and difficult to scale.
-
-Recent advances in deep learning and edge AI enable automatic road inspection using onboard cameras and embedded computers.
-
-The objective of this project is to investigate whether modern real-time object detectors can accurately identify different categories of road damage while remaining suitable for deployment on resource-constrained embedded platforms.
-
----
-
-# Project Objectives
-
-The main objectives of this project are:
-
-- Develop a reproducible road damage detection pipeline
-- Compare RT-DETR-L and YOLOv8-L under identical experimental conditions
-- Evaluate both models using standard object detection metrics
-- Analyze strengths and weaknesses of transformer-based and one-stage detectors
-- Deploy the detection pipeline on NVIDIA Jetson Nano
-- Integrate Luxonis OAK-D for real-time embedded vision
-- Build a foundation for future autonomous mobile robot applications
-
----
-
-# System Overview
-
-```
-                Road Image
-                     │
-                     ▼
-             Luxonis OAK-D Camera
-                     │
-                     ▼
-             NVIDIA Jetson Nano
-                     │
-         ┌───────────┴───────────┐
-         ▼                       ▼
-      RT-DETR-L              YOLOv8-L
-         │                       │
-         └───────────┬───────────┘
-                     ▼
-           Road Damage Detection
-                     │
-                     ▼
-          Visualization & Evaluation
+```mermaid
+flowchart LR
+  A[Existing RDD2022 split] --> B[YOLO to COCO]
+  B --> C[RT-DETR-R18 training]
+  C --> D[Best recorded validation: epoch 59]
+  D --> E[ONNX / compatible raw graph]
+  E --> F[Recorded TensorRT FP16 deployment]
+  G[DepthAI camera: 640 x 480] --> H[RGB / 640 x 640 preprocessing]
+  H --> F
+  F --> I[NumPy sigmoid / top 300 / confidence >= 0.60]
+  I --> J[Annotations / display / MP4]
 ```
 
----
-
-# Hardware Platform
-
-The embedded AI system consists of:
-
-- NVIDIA Jetson Nano
-- Luxonis OAK-D Camera
-- USB Wi-Fi Adapter
-- Raspberry Pi Pico (robot controller)
-- ESP32 Motor Controller
-- Four-wheel robotic platform
-- DualShock 4 wireless controller
-- External battery power system
-
----
-
-# Software Stack
-
-Development and deployment use:
-
-- Ubuntu Linux
-- Python
-- PyTorch
-- OpenCV
-- Ultralytics
-- RT-DETR
-- DepthAI SDK
-- Git
-- GitHub
-
----
-
-# Dataset
-
-Dataset:
-
-**RDD2022 (Road Damage Detection Dataset)**
-
-Road damage classes:
-
-- D00
-- D10
-- D20
-- D40
-- Other
-
----
-
-# AI Models
-
-## RT-DETR-L
-
-RT-DETR-L is a transformer-based end-to-end object detector that eliminates Non-Maximum Suppression (NMS) and performs object prediction directly through transformer decoding.
-
-Advantages:
-
-- End-to-end detection
-- Strong localization
-- Modern transformer architecture
-
----
-
-## YOLOv8-L
-
-YOLOv8-L is a one-stage object detector designed for high-speed inference while maintaining strong detection accuracy.
-
-Advantages:
-
-- Fast inference
-- Excellent real-time performance
-- Mature deployment ecosystem
-
----
-
-# Evaluation Metrics
-
-The models are evaluated using:
-
-- Precision
-- Recall
-- mAP50
-- mAP50-95
-
----
-
-# Experimental Results
-
-| Model | Precision | Recall | mAP50 | mAP50-95 |
-|---------|----------|--------|---------|------------|
-| RT-DETR-L | 0.696 | 0.602 | 0.643 | 0.331 |
-| YOLOv8-L | 0.670 | 0.603 | 0.643 | 0.357 |
-
----
-
-# Key Findings
-
-- Both models achieved nearly identical mAP50.
-- RT-DETR-L achieved slightly higher Precision.
-- YOLOv8-L achieved higher mAP50-95.
-- YOLOv8-L demonstrated better localization quality under the current experimental setup.
-
----
-
-# Current Project Status
+No NMS is applied in the supplied raw postprocessing path. See [deployment details](docs/05_deployment.md) for evidence qualifications.
 
 ## Dataset
 
-- ✅ Dataset prepared
+38,385 images: 26,869 train, 5,758 validation and 5,758 test; 65,711 valid COCO boxes. Classes: D00 longitudinal crack; D10 transverse crack; D20 alligator/fatigue crack; D40 pothole; Other other road-damage patterns. The existing split's provenance is unknown; the project does not claim to have created it. [Dataset audit](docs/02_dataset.md).
 
-## Training
+## Model and training
 
-- ✅ YOLOv8-L completed
+Configured for 72 epochs with AdamW, batch size 8, AMP supported by checkpoint GradScaler state and EMA enabled. Evaluation/deployment use 640 x 640; training includes multiscale resizing. Epoch 59 is the **best recorded validation checkpoint**. Epoch 21's validation log entry is missing. [Training evidence](docs/03_model_and_training.md).
 
-- ✅ RT-DETR-L completed
+## Results
 
-## Evaluation
+| Evidence scope | Result | Qualification |
+|---|---|---|
+| Validation, epoch 59 | mAP50-95 0.3521852248; AP50 0.6454196683 | Best recorded validation entry |
+| COCO test-split evaluation artifact | mAP50-95 0.349558240; AP50 0.643720273 | Artifact does not independently bind itself to a checkpoint hash |
+| Separate epoch-71 threshold experiment | Precision 77.04%; recall 51.65% | Confidence >= 0.60; matching IoU >= 0.50; not COCO AP |
+| Recorded deployment benchmark | 204 frames / 107.825331879 s = 1.891948733 FPS | Time from project summary; frame count directly verified in media |
 
-- ✅ Model comparison completed
+[Evaluation](docs/04_evaluation.md) and [benchmark scopes](docs/05_deployment.md) keep these experiments separate.
 
-## Edge AI Deployment
+## Deployment
 
-- ✅ Jetson Nano configured
+Project records identify Jetson Nano 4GB, TensorRT 8.0.1.6 FP16 and OAK-D RGB camera. Code establishes DepthAI capture and TensorRT runtime calls; hardware identity and precision lack raw device/build logs. Reported file-video throughput is about 2.37 FPS and live processing about 2.2 FPS. The RTX report of 8.11 ms / 123.37 FPS is inference-only, not directly comparable to camera recording throughput.
 
-- ✅ DepthAI installed
+See [environment notes](environments/environment_notes.md), [tools](tools/README.md) and [Jetson package notes](deployment/jetson/README.md). Preserve the existing engine; no rebuild is required or recommended here.
 
-- ✅ OAK-D camera detected
+## Physical demo
 
-- 🔄 Real-time camera pipeline
+Annotated camera demonstration (retained only in the separate staging evidence package, not included in this checkout; **NOT FOR PUBLIC REDISTRIBUTION until image/media rights are reviewed**, excluded from Git by .gitignore): 204 decodable frames, 640 x 480, encoded at 5 FPS (40.8 seconds playback). Playback duration is not acquisition wall time. The camera views images displayed on another screen; this is not real-road field testing. [Media provenance](assets/demo/README.md).
 
-- 🔄 Edge inference optimization
+## Project history
 
----
+The audited RT-DETR-R18 package is the authoritative current project. [Historical RT-DETR-L / YOLOv8-L comparison work](archive/rtdetr-l-vs-yolov8-l/README.md) is preserved separately; its metrics are not a controlled comparison with current R18 results. The repository name retains that historical comparison context.
 
-# Repository Structure
+## Repository structure
 
-```
-road-damage-detection-rtdetr-vs-yolov8/
+- `configs/`, `tools/`: selected configuration and integration snapshots.
+- `deployment/jetson/`: TensorRT/DepthAI runtime and recording code.
+- `docs/`: lifecycle, verification, limitations and source map.
+- `results/`: metrics and recorded benchmark evidence.
+- `assets/`: demo provenance and example-selection notes; restricted media excluded.
+- `portfolio/`: evidence-grounded career summaries.
 
-│
+## Limitations
 
-├── README.md
+Historical qualitative requirements were found in the earlier RT-DETR-L/YOLOv8-L repository. Their chronology relative to experiments is unproven; they contain no numeric latency or accuracy acceptance threshold. [Requirements history](docs/01_problem_and_scope.md).
 
-├── docs/
+Class imbalance, weaker Other/small-object AP, unknown split provenance, missing epoch-21 validation, incomplete test/checkpoint linkage and different FPS scopes limit conclusions. No full-dataset TensorRT parity or production-readiness claim is made. [Limitations](docs/07_limitations.md), [future work](docs/08_future_work.md).
 
-├── data/
+## Attribution
 
-├── models/
+RT-DETR is the upstream framework by lyuwenyu and contributors. Project work adapts configuration, evaluation and deployment integration; it does not claim authorship of RT-DETR. [Notices](THIRD_PARTY_NOTICES.md), [source map](docs/SOURCE_MAP.md).
 
-├── notebooks/
+## License
 
-├── src/
-
-├── results/
-
-├── assets/
-
-├── scripts/
-
-└── presentation/
-```
-
----
-
-# Future Work
-
-Future extensions include:
-
-- Real-time road damage detection
-- TensorRT optimization
-- ONNX model export
-- Jetson Nano benchmarking
-- OAK-D stereo depth integration
-- GPS localization
-- Autonomous robot deployment
-- Road condition mapping
-- Infrastructure inspection platform
-
----
-
-# Author
-
-**Subir Balo**
-
-Electronic Engineering Student
-
-Hamm-Lippstadt University of Applied Sciences (HSHL)
-
-Germany
-
----
-
-# Acknowledgements
-
-Special thanks to:
-
-- NVIDIA
-- Luxonis
-- Ultralytics
-- RT-DETR Authors
-- RDD2022 Dataset Contributors
+Project-specific original contributions are licensed under [MIT](LICENSE), as selected by the project owner. Upstream RT-DETR-derived material remains subject to [Apache License 2.0](LICENSES/RT-DETR-Apache-2.0.txt); MIT does not relicense that material. See [licensing scope and media restrictions](THIRD_PARTY_NOTICES.md). Neither license grants redistribution rights over third-party datasets or imagery.
