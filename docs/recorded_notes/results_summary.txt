@@ -1,3 +1,22 @@
+HISTORICAL SUMMARY — CORRECTION AND AUTHORITATIVE INTERPRETATION
+
+These are preserved historical project summaries. The best recorded validation
+checkpoint is epoch 59. The precision 77.04% / recall 51.65% operating-point
+result belongs to the separate epoch-71 checkpoint.pth threshold experiment.
+That experiment used confidence >= 0.60 and matching IoU >= 0.50.
+It must not be attributed to epoch 59.
+
+For authoritative interpretation, refer to these repository-root paths:
+- docs/04_evaluation.md
+- results/README.md
+
+DEPLOYMENT EVIDENCE QUALIFICATION
+Recorded project evidence documents successful Jetson/TensorRT/OAK-D deployment;
+hardware identity and engine execution are not independently authenticated by
+raw device logs in this repository.
+
+--- ORIGINAL HISTORICAL CONTENT (UNCHANGED) ---
+
 RDD2022 RT-DETR-R18 — FINAL RESULTS SUMMARY
 
 MODEL
