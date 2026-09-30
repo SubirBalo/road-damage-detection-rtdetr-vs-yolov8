@@ -19,9 +19,9 @@ The requirements document describes qualitative embedded acquisition, inference,
 - original_README.md: byte-preserved original project description.
 - docs/: historical requirements.
 - notebooks/: original comparison notebook, including stored outputs.
-- results/: both legacy experiment directories, including their weights.
+- results/: both legacy experiment directories, excluding checkpoint binaries removed from the current tree; historical locations are recorded in checkpoint_inventory.md.
 - checkpoint_inventory.md: checkpoint locations, duplicate Git blob identities and preservation status.
 
-All checkpoint copies are retained in this commit. Only tracked .DS_Store metadata is removed. Historical personal paths and embedded imagery remain in the legacy evidence and still require review before further publication; they were not silently edited in this archival step.
+The initial archive commit retained all checkpoint copies and removed tracked .DS_Store metadata. The subsequent cleanup intentionally removes all eight legacy checkpoint paths from the current tree while preserving them through prior commits and the preservation tag. See checkpoint_inventory.md for exact paths and duplicate identities. Historical personal paths and embedded imagery remain in the legacy evidence and still require review before further publication; they were not silently edited in this archival step.
 
 Preservation reference: pre-r18-audited-migration at 8f2c8ef646cfd9e79717708ce6ca6ee776f79071
