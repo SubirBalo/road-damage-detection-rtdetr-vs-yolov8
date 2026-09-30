@@ -1,0 +1,36 @@
+task: detection
+
+num_classes: 5
+remap_mscoco_category: False
+
+train_dataloader:
+  type: DataLoader
+  dataset:
+    type: CocoDetection
+    img_folder: D:/Road_Damage_Project/RDD2022/dataset/RDD_SPLIT/train/images
+    ann_file: D:/Road_Damage_Project/RDD2022/dataset/RDD_SPLIT/annotations/instances_train.json
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: True
+  batch_size: 8
+  num_workers: 4
+  drop_last: True
+
+
+val_dataloader:
+  type: DataLoader
+  dataset:
+    type: CocoDetection
+    img_folder: D:/Road_Damage_Project/RDD2022/dataset/RDD_SPLIT/test/images
+    ann_file: D:/Road_Damage_Project/RDD2022/dataset/RDD_SPLIT/annotations/instances_test.json
+    transforms:
+      type: Compose
+      ops: ~
+
+  shuffle: False
+  batch_size: 8
+  num_workers: 4
+  drop_last: False
+
+

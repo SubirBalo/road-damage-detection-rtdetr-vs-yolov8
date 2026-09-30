@@ -1,0 +1,23 @@
+RDD2022 RT-DETR-R18 - Jetson Nano + OAK-D Deployment
+
+Hardware:
+- NVIDIA Jetson Nano 4GB
+- OAK-D RGB camera
+- Camera input: 640x480 @ 5 FPS
+
+Inference:
+- Model: RT-DETR-R18
+- TensorRT: 8.0.1.6
+- Precision: FP16
+- Confidence threshold: 0.60
+
+Recorded End-to-End Demo:
+- Frames processed: 204
+- Total time: 107.825331879 s
+- Average end-to-end FPS: 1.891948733
+- Output: oak_rtdetr_demo.mp4
+
+Note:
+The recorded FPS includes camera acquisition, preprocessing,
+TensorRT inference, post-processing, annotation, display,
+and MP4 video writing.

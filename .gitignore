@@ -179,3 +179,30 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# macOS filesystem metadata
+.DS_Store
+
+# Large model artifacts are retained externally or in legacy history
+*.pt
+*.pth
+*.engine
+*.onnx
+*.onnx.data
+
+# Audited R18 package exclusions (merged from staging)
+.venv/
+.env.*
+!.env.example
+*.cache
+*.zip
+*.building
+RDD2022/
+datasets/
+weights/
+checkpoints/
+outputs/
+deployment/jetson/models/
+deployment/jetson/results/
+Thumbs.db
+/assets/demo/*.mp4

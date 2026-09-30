@@ -1,0 +1,237 @@
+{
+  "platform": "win32",
+  "python": "3.11.16 | packaged by conda-forge | (main, Aug 21 2026, 22:37:11) [MSC v.1944 64 bit (AMD64)]",
+  "onnx": "1.23.0",
+  "onnxruntime": "1.26.0",
+  "opencv": "5.0.0",
+  "numpy": "2.4.6",
+  "python36_syntax_and_host_imports": [
+    "03_test_image.py",
+    "04_run_video.py",
+    "rdd_runtime.py"
+  ],
+  "shell_syntax": [
+    "00_nano_doctor.sh",
+    "01_test_onnx_parser.sh",
+    "02_build_fp16_engine.sh",
+    "nano_common.sh"
+  ],
+  "resize_parity": [
+    {
+      "input": [
+        512,
+        512
+      ],
+      "max_pixel_error": 0
+    },
+    {
+      "input": [
+        373,
+        719
+      ],
+      "max_pixel_error": 0
+    },
+    {
+      "input": [
+        720,
+        1280
+      ],
+      "max_pixel_error": 0
+    },
+    {
+      "input": [
+        640,
+        640
+      ],
+      "max_pixel_error": 0
+    },
+    {
+      "input": [
+        1,
+        3
+      ],
+      "max_pixel_error": 0
+    }
+  ],
+  "golden_preprocessing_exact": true,
+  "models": {
+    "primary.onnx": {
+      "sha256": "4ed24ef9ec662054463d4abb79f530f51366d69b2712570fb48541bcc2d3e7a2",
+      "bytes": 1525798,
+      "ir_version": 10,
+      "opset": 18,
+      "unresolved_shapes": 7,
+      "operators": [
+        "Add",
+        "And",
+        "AveragePool",
+        "Cast",
+        "Clip",
+        "Concat",
+        "Conv",
+        "Div",
+        "Equal",
+        "Erf",
+        "Expand",
+        "Gather",
+        "GatherElements",
+        "Gemm",
+        "GridSample",
+        "LayerNormalization",
+        "Less",
+        "Log",
+        "MatMul",
+        "MaxPool",
+        "Mod",
+        "Mul",
+        "ReduceMax",
+        "ReduceSum",
+        "Relu",
+        "Reshape",
+        "Resize",
+        "Sigmoid",
+        "Slice",
+        "Softmax",
+        "Split",
+        "Squeeze",
+        "Sub",
+        "Tile",
+        "TopK",
+        "Transpose",
+        "Unsqueeze"
+      ],
+      "golden_detections": [
+        {
+          "class_id": 1,
+          "class_name": "D10",
+          "confidence": 0.7833930253982544,
+          "box": [
+            24.878677368164062,
+            337.3971252441406,
+            378.02618408203125,
+            457.6328430175781
+          ]
+        }
+      ],
+      "cpu_seconds": 0.10204540000995621
+    },
+    "nano_compat.onnx": {
+      "sha256": "ad5d6f94ea80d949d4d520b4ca8778f42b2d5282a4c35e63daed54ffd21a2695",
+      "bytes": 81619239,
+      "ir_version": 7,
+      "opset": 13,
+      "unresolved_shapes": 0,
+      "operators": [
+        "Add",
+        "And",
+        "AveragePool",
+        "Cast",
+        "Clip",
+        "Concat",
+        "Conv",
+        "Div",
+        "Equal",
+        "Erf",
+        "Expand",
+        "Floor",
+        "Gather",
+        "GatherElements",
+        "Gemm",
+        "GreaterOrEqual",
+        "Identity",
+        "Less",
+        "Log",
+        "MatMul",
+        "MaxPool",
+        "Mul",
+        "ReduceMax",
+        "ReduceMean",
+        "ReduceSum",
+        "Relu",
+        "Reshape",
+        "Resize",
+        "Sigmoid",
+        "Slice",
+        "Softmax",
+        "Split",
+        "Sqrt",
+        "Squeeze",
+        "Sub",
+        "Tile",
+        "TopK",
+        "Transpose",
+        "Unsqueeze"
+      ],
+      "golden_detections": [
+        {
+          "class_id": 1,
+          "class_name": "D10",
+          "confidence": 0.783393144607544,
+          "box": [
+            24.878692626953125,
+            337.3971252441406,
+            378.02618408203125,
+            457.6328430175781
+          ]
+        }
+      ],
+      "cpu_seconds": 0.15562130004400387
+    }
+  },
+  "numerical_parity": {
+    "detections_compared": 300,
+    "labels_equal": true,
+    "max_box_error_pixels": 0.009307861328125,
+    "max_score_error": 1.2814998626708984e-06,
+    "box_tolerance_pixels": 0.05,
+    "score_tolerance": 0.0001,
+    "method": "Class-aware box matching for TopK ties"
+  },
+  "video": {
+    "decoded_frames": 600,
+    "fps": 10.0,
+    "duration_seconds": 60.0
+  },
+  "nano_pending": [
+    "TensorRT 8.0.1 parser/build",
+    "FP16 golden-image accuracy",
+    "CUDA ctypes execution on aarch64",
+    "RAM/thermals/FPS",
+    "camera and GUI"
+  ],
+  "recorded_video_check": {
+    "path": "results\\windows_demo_final.mp4",
+    "frames": 600,
+    "fps": 10.0,
+    "duration_seconds": 60.0,
+    "all_frames_decoded": true
+  },
+  "full_video_execution": {
+    "frames": 600,
+    "seconds": 54.03361240000231,
+    "backend": "onnxruntime",
+    "source": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\JETSON_NANO_DEPLOYMENT\\assets\\rdd_demo_input_1min.mp4",
+    "output": "JETSON_NANO_DEPLOYMENT\\results\\windows_demo_final.mp4"
+  },
+  "golden_script_execution": {
+    "backend": "onnxruntime",
+    "seconds": 0.13597500004107133,
+    "detections": [
+      {
+        "class_id": 1,
+        "class_name": "D10",
+        "confidence": 0.7833932042121887,
+        "box": [
+          24.878692626953125,
+          337.3971252441406,
+          378.02618408203125,
+          457.6328430175781
+        ]
+      }
+    ],
+    "expected_smoke_pass": true,
+    "confidence_tolerance": 0.03,
+    "box_tolerance_pixels": 12
+  },
+  "source_hashes_rechecked": true
+}

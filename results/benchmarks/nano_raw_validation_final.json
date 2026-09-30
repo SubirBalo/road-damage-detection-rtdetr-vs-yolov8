@@ -1,0 +1,137 @@
+{
+  "checkpoint": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rtdetr_r18vd_rdd\\RDD2022_RTDETR_R18_BEST_E59.pth",
+  "checkpoint_sha256": "0526ee09c256f7b168e1d1521325162b66af5c556753a11b326de3c6913e75fe",
+  "checkpoint_epoch": 59,
+  "weight_source": "ema.module",
+  "strict_state_load": true,
+  "torch_version": "2.11.0+cu128",
+  "onnx_version": "1.23.0",
+  "ort_version": "1.26.0",
+  "mode": "CPU float32 eval/no_grad",
+  "external_postprocessor_vs_repository": {
+    "detections": 300,
+    "labels_equal": true,
+    "max_box_error_pixels": 0.0,
+    "max_score_error": 2.9802322387695312e-08,
+    "box_tolerance": 0.06,
+    "score_tolerance": 0.0001,
+    "matching": "Class-aware geometric matching accounts for equal-score TopK ties"
+  },
+  "raw_onnx_vs_pytorch": {
+    "pred_logits": {
+      "shape": [
+        1,
+        300,
+        5
+      ],
+      "max_abs_error": 0.0002808570861816406,
+      "mean_abs_error": 4.270553745300276e-06,
+      "absolute_tolerance": 0.0005
+    },
+    "pred_boxes": {
+      "shape": [
+        1,
+        300,
+        4
+      ],
+      "max_abs_error": 4.857778549194336e-05,
+      "mean_abs_error": 3.2550499895478424e-07,
+      "absolute_tolerance": 0.0001
+    }
+  },
+  "raw_plus_numpy_vs_pytorch": {
+    "detections": 300,
+    "labels_equal": true,
+    "max_box_error_pixels": 0.01324462890625,
+    "max_score_error": 1.7181038856506348e-05,
+    "box_tolerance": 0.06,
+    "score_tolerance": 0.0001,
+    "matching": "Class-aware geometric matching accounts for equal-score TopK ties"
+  },
+  "raw_onnx_vs_deployed_pytorch": {
+    "reordered_queries": 2,
+    "matching": "Minimum box-coordinate distance between raw queries",
+    "pred_logits": {
+      "matched_max_abs_error": 0.0002827644348144531,
+      "indexwise_max_abs_error": 1.124466896057129
+    },
+    "pred_boxes": {
+      "matched_max_abs_error": 4.89354133605957e-05,
+      "indexwise_max_abs_error": 0.48397815227508545
+    }
+  },
+  "raw_plus_numpy_vs_deployed_pytorch": {
+    "detections": 300,
+    "labels_equal": true,
+    "max_box_error_pixels": 0.01336669921875,
+    "max_score_error": 1.7292797565460205e-05,
+    "box_tolerance": 0.06,
+    "score_tolerance": 0.0001,
+    "matching": "Class-aware geometric matching accounts for equal-score TopK ties"
+  },
+  "raw_plus_numpy_vs_validated_primary": {
+    "detections": 300,
+    "labels_equal": true,
+    "max_box_error_pixels": 0.007080078125,
+    "max_score_error": 9.082257747650146e-06,
+    "box_tolerance": 0.06,
+    "score_tolerance": 0.0001,
+    "matching": "Class-aware geometric matching accounts for equal-score TopK ties"
+  },
+  "golden_image": {
+    "pytorch": [
+      {
+        "class_id": 1,
+        "class_name": "D10",
+        "confidence": 0.7833928465843201,
+        "box": [
+          24.8785400390625,
+          337.3971252441406,
+          378.026123046875,
+          457.6328430175781
+        ]
+      }
+    ],
+    "primary": [
+      {
+        "class_id": 1,
+        "class_name": "D10",
+        "confidence": 0.7833936214447021,
+        "box": [
+          24.878677368164062,
+          337.3971252441406,
+          378.02618408203125,
+          457.6328430175781
+        ]
+      }
+    ],
+    "nano_raw_numpy": [
+      {
+        "class_id": 1,
+        "class_name": "D10",
+        "confidence": 0.7833932042121887,
+        "box": [
+          24.878692626953125,
+          337.3971252441406,
+          378.02618408203125,
+          457.6328430175781
+        ]
+      }
+    ]
+  },
+  "postprocessing_tests": [
+    "two batches and non-square original dimensions",
+    "same raw data versus repository postprocessor",
+    "out-of-bounds boxes preserved, no NMS",
+    "multiple classes from same query retained",
+    "extreme sigmoid inputs finite",
+    "equal-score tie order deterministic; PyTorch tie order is unspecified"
+  ],
+  "syntax_import_checks": "Python 3.6 syntax, host imports and Bash syntax passed",
+  "existing_files_unchanged": 109,
+  "nano_pending": [
+    "TRT 8.0.1.6 parse/build",
+    "FP16 numeric validation",
+    "Nano engine execution, memory and FPS"
+  ]
+}

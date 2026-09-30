@@ -1,0 +1,20 @@
+RT-DETR-R18 TensorRT Deployment Validation
+
+Golden test image:
+- Image: China_Drone_000008.jpg
+- Expected class: D10
+
+Windows packaged runtime:
+- Class: D10
+- Confidence: 0.783393
+- Box approximately: [24.879, 337.397, 378.026, 457.633]
+
+Jetson Nano TensorRT FP16:
+- Class: D10
+- Confidence: 0.783326
+- Box: [25.5, 337.125, 377.75, 457.375]
+
+Result:
+The Jetson TensorRT FP16 deployment reproduces the Windows
+model prediction with very close confidence and bounding-box
+coordinates.

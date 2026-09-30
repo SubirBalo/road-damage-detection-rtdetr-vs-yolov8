@@ -1,0 +1,40 @@
+{
+  "provenance": "Recovered from original test eval.pth during prior read-only audit; not recomputed during packaging",
+  "checkpoint_linkage": "Not independently established by artifact",
+  "overall": {
+    "mAP50_95": 0.34955824,
+    "AP50": 0.643720273,
+    "AP75": 0.328032664,
+    "AP_small": 0.242258321,
+    "AP_medium": 0.289552379,
+    "AP_large": 0.413015851,
+    "AR100": 0.612933009
+  },
+  "per_class": {
+    "D00": {
+      "AP50_95": 0.357249,
+      "AP50": 0.6355,
+      "AP75": 0.349389
+    },
+    "D10": {
+      "AP50_95": 0.319145,
+      "AP50": 0.616985,
+      "AP75": 0.290522
+    },
+    "D20": {
+      "AP50_95": 0.348215,
+      "AP50": 0.661173,
+      "AP75": 0.321012
+    },
+    "D40": {
+      "AP50_95": 0.473635,
+      "AP50": 0.757173,
+      "AP75": 0.502081
+    },
+    "Other": {
+      "AP50_95": 0.249548,
+      "AP50": 0.547771,
+      "AP75": 0.17716
+    }
+  }
+}

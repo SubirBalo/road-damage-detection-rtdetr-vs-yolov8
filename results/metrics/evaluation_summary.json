@@ -1,0 +1,188 @@
+{
+  "checkpoint": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rtdetr_r18vd_rdd\\checkpoint.pth",
+  "checkpoint_sha256": "2bb70bb33b976216f8384afb9cc5cda97599094c8b3856e670c56233cc644254",
+  "checkpoint_unchanged": true,
+  "weight_source": "ema",
+  "config": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\configs\\rtdetr\\rtdetr_r18vd_rdd_test.yml",
+  "annotations": "D:\\Road_Damage_Project\\RDD2022\\dataset\\RDD_SPLIT\\annotations\\instances_test.json",
+  "annotations_sha256": "97d802607e9e9ba99f00a8df909e05ec5d087fad9f6a07631ddd293cd771ea45",
+  "images_dir": "D:\\Road_Damage_Project\\RDD2022\\dataset\\RDD_SPLIT\\test\\images",
+  "image_count": 5758,
+  "confidence_threshold": 0.6,
+  "iou_threshold": 0.5,
+  "batch_size": 8,
+  "device": "cuda",
+  "inference": "FP32 full-image 640x640; no NMS; no test-set tuning",
+  "matching": "Descending confidence, class-aware, one-to-one IoU matching; not COCO AP",
+  "example_selection": "Highest-confidence matched TP per class; illustrative, not representative",
+  "overall": {
+    "tp": 4997,
+    "fp": 1489,
+    "fn": 4678,
+    "ground_truth": 9675,
+    "precision": 0.7704286154794943,
+    "recall": 0.516485788113695
+  },
+  "per_class": {
+    "D00": {
+      "tp": 1999,
+      "fp": 610,
+      "fn": 1926,
+      "ground_truth": 3925,
+      "precision": 0.766193944039862,
+      "recall": 0.5092993630573248
+    },
+    "D10": {
+      "tp": 801,
+      "fp": 297,
+      "fn": 874,
+      "ground_truth": 1675,
+      "precision": 0.7295081967213115,
+      "recall": 0.47820895522388057
+    },
+    "D20": {
+      "tp": 778,
+      "fp": 179,
+      "fn": 759,
+      "ground_truth": 1537,
+      "precision": 0.812957157784744,
+      "recall": 0.5061808718282368
+    },
+    "D40": {
+      "tp": 1046,
+      "fp": 281,
+      "fn": 541,
+      "ground_truth": 1587,
+      "precision": 0.7882441597588545,
+      "recall": 0.6591052299936988
+    },
+    "Other": {
+      "tp": 373,
+      "fp": 122,
+      "fn": 578,
+      "ground_truth": 951,
+      "precision": 0.7535353535353535,
+      "recall": 0.3922187171398528
+    }
+  },
+  "examples": {
+    "D00": {
+      "category_id": 0,
+      "class_name": "D00",
+      "score": 0.9511396884918213,
+      "bbox_xyxy": [
+        84.34414672851562,
+        129.87109375,
+        205.86129760742188,
+        507.77166748046875
+      ],
+      "true_positive": true,
+      "annotation_id": 1046,
+      "iou": 0.9587350829769665,
+      "gt_bbox_xyxy": [
+        83.9997,
+        136.9999,
+        208.0,
+        508.9996
+      ],
+      "image_id": 562,
+      "file_name": "China_MotorBike_001169.jpg",
+      "visualization": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rdd_test_examples\\D00_true_positive.jpg"
+    },
+    "D10": {
+      "category_id": 1,
+      "class_name": "D10",
+      "score": 0.9442512392997742,
+      "bbox_xyxy": [
+        -0.2011260986328125,
+        272.85601806640625,
+        511.793701171875,
+        385.197998046875
+      ],
+      "true_positive": true,
+      "annotation_id": 828,
+      "iou": 0.9625029983335796,
+      "gt_bbox_xyxy": [
+        1.0002,
+        275.9997,
+        512.0,
+        385.99980000000005
+      ],
+      "image_id": 471,
+      "file_name": "China_MotorBike_000634.jpg",
+      "visualization": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rdd_test_examples\\D10_true_positive.jpg"
+    },
+    "D20": {
+      "category_id": 2,
+      "class_name": "D20",
+      "score": 0.9608849287033081,
+      "bbox_xyxy": [
+        -0.148040771484375,
+        85.90835571289062,
+        511.7989196777344,
+        511.6705627441406
+      ],
+      "true_positive": true,
+      "annotation_id": 719,
+      "iou": 0.9768471999042873,
+      "gt_bbox_xyxy": [
+        1.0002,
+        93.9999,
+        512.0,
+        510.99980000000005
+      ],
+      "image_id": 422,
+      "file_name": "China_MotorBike_000325.jpg",
+      "visualization": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rdd_test_examples\\D20_true_positive.jpg"
+    },
+    "D40": {
+      "category_id": 3,
+      "class_name": "D40",
+      "score": 0.9766680598258972,
+      "bbox_xyxy": [
+        -0.0867462158203125,
+        -0.1123809814453125,
+        270.1358642578125,
+        511.88250732421875
+      ],
+      "true_positive": true,
+      "annotation_id": 51,
+      "iou": 0.9867924912907693,
+      "gt_bbox_xyxy": [
+        1.0002,
+        1.0002,
+        272.0003,
+        512.0
+      ],
+      "image_id": 38,
+      "file_name": "China_Drone_000278.jpg",
+      "visualization": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rdd_test_examples\\D40_true_positive.jpg"
+    },
+    "Other": {
+      "category_id": 4,
+      "class_name": "Other",
+      "score": 0.9294834136962891,
+      "bbox_xyxy": [
+        154.3170166015625,
+        98.23112487792969,
+        242.8538818359375,
+        432.86865234375
+      ],
+      "true_positive": true,
+      "annotation_id": 1101,
+      "iou": 0.9477337800929801,
+      "gt_bbox_xyxy": [
+        152.9999,
+        103.0001,
+        243.9997,
+        437.00019999999995
+      ],
+      "image_id": 584,
+      "file_name": "China_MotorBike_001293.jpg",
+      "visualization": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rdd_test_examples\\Other_true_positive.jpg"
+    }
+  },
+  "missing_classes": [],
+  "predictions": "D:\\Road_Damage_Project\\RT-DETR\\rtdetr_pytorch\\output\\rdd_test_examples\\predictions.jsonl",
+  "elapsed_seconds": 96.07799999999406
+}
